@@ -1,0 +1,8 @@
+<div class="modal-body">
+  <h2 id="detail-name">{{currentSight.name}}</h2>
+  <h4 id="detail-coordinates">{{currentSight.longitude}} {{currentSight.latitude}}</h4>
+  <h4>{{currentSight.description}}</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>

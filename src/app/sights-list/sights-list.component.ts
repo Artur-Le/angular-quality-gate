@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {SightseeingPoint} from '../models/sightseeing-point';
 import {SightsService} from '../services/sights.service';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-sights-list',
@@ -10,13 +11,19 @@ import {SightsService} from '../services/sights.service';
 export class SightsListComponent implements OnInit {
 
   sights: SightseeingPoint[];
+  modalRef: BsModalRef;
+  currentSight: SightseeingPoint;
 
-  constructor(private sightsService: SightsService) {
+  constructor(private sightsService: SightsService, private modalService: BsModalService) {
   }
 
   ngOnInit(): void {
     this.sightsService.getSights().subscribe(sights => {
       this.sights = sights;
     });
+  }
+
+  openModal(template: TemplateRef<any>): void {
+    this.modalRef = this.modalService.show(template);
   }
 }

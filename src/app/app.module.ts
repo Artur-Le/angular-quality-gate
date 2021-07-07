@@ -10,6 +10,8 @@ import {environment} from '../environments/environment';
 import { SightsComponent } from './sights/sights.component';
 import { NavComponent } from './nav/nav.component';
 import {SightsListComponent} from './sights-list/sights-list.component';
+import {SightsModule} from './modules/sights/sights.module';
+import {ModalModule} from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import {SightsListComponent} from './sights-list/sights-list.component';
     }),
     ReactiveFormsModule,
     HttpClientModule,
+    SightsModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
