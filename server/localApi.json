@@ -1,28 +1,28 @@
 {
   "sights": [
     {
-      "id": 1,
       "name": "Wawel",
-      "longitude": 19.9353576,
-      "latitude": 50.0541492,
+      "longitude": 19.935357,
+      "latitude": 50.054149,
       "country": {
-        "name": "POLAND",
-        "iataCode": "PL"
+        "name": "GERMANY",
+        "iataCode": "GER"
       },
       "description": "The Wawel Royal Castle and the Wawel Hill constitute the most historically and culturally important site in Poland. For centuries the residence of kings and the symbol of Polish statehood, the castle is now one of the country’s premier art museums.",
-      "color": 1
+      "color": 1,
+      "id": 1
     },
     {
-      "id": 2,
       "name": "Dragon",
       "longitude": 19.933606117422418,
       "latitude": 50.053059067891,
       "country": {
-        "name": "POLAND",
-        "iataCode": "PL"
+        "name": "ENGLAND",
+        "iataCode": "EN"
       },
       "description": "Dragon of Wawel Hill, is a famous dragon in Polish folklore. His lair was in a cave at the foot of Wawel Hill on the bank of the Vistula River",
-      "color": 2
+      "color": 2,
+      "id": 2
     },
     {
       "id": 3,
