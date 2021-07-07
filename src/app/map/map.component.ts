@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import {SightseeingPoint} from '../models/sightseeing-point';
 import * as mapbox from 'ngx-mapbox-gl';
 import {Location} from '../models/location';
