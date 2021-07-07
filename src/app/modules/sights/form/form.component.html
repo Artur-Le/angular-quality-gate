@@ -1,1 +1,92 @@
-<p>form works!</p>
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-container">
+      <label>Name:
+        <input type="text" formControlName="name" id="form-name">
+      </label>
+      <span
+        *ngIf="showError('name', 'required')"
+        class="error-message error-extra-gap">
+            This field is required!
+          </span>
+
+      <label> Longitude:
+        <input type="number" formControlName="longitude" id="form-longitude">
+      </label>
+      <span
+        *ngIf="showError('longitude', 'required')"
+        class="error-message error-extra-gap">
+            This field is required!
+          </span>
+      <span
+        *ngIf="showError('longitude', 'pattern')"
+        class="error-message error-extra-gap">
+            You must follow "xx.yy" pattern!
+          </span>
+
+      <label> Latitude:
+        <input type="number" formControlName="latitude" id="form-latitude">
+      </label>
+      <span
+        *ngIf="showError('latitude', 'required')"
+        class="error-message error-extra-gap">
+            This field is required!
+          </span>
+      <span
+        *ngIf="showError('latitude', 'pattern')"
+        class="error-message error-extra-gap">
+            You must follow "xx.yy" pattern!
+          </span>
+
+      <label> Country:
+        <select formControlName="country" class="form-select" aria-label="Default select example">
+          <ng-container *ngFor=" let country of countries">
+            <option [value]="country.name">{{country.name}}</option>
+          </ng-container>
+        </select>
+      </label>
+      <span
+        *ngIf="showError('country', 'required')"
+        class="error-message error-extra-gap">
+            This field is required!
+          </span>
+
+      <label> Description:
+        <input type="text" formControlName="description" id="form-description">
+      </label>
+      <span
+        *ngIf="showError('description', 'required')"
+        class="error-message error-extra-gap">
+            This field is required!
+          </span>
+      <span
+        *ngIf="showError('description', 'maxLength')"
+        class="error-message error-extra-gap">
+            Max length is 255!
+          </span>
+
+      <label> Color:
+        <input type="number" formControlName="color" id="form-color">
+      </label>
+      <span
+        *ngIf="showError('color', 'required')"
+        class="error-message error-extra-gap">
+            This field is required!
+          </span>
+      <span
+        *ngIf="showError('color', 'min')"
+        class="error-message error-extra-gap">
+            Minimal value is 1!
+          </span>
+      <span
+        *ngIf="showError('color', 'max')"
+        class="error-message error-extra-gap">
+            Maximal value is 3!
+          </span>
+
+      <input class="btn btn-success" type="submit" value="Save" [disabled]="!form.valid" id="form-submit"/>
+      <button class="btn btn-danger" routerLink="/" id="form-close">Close</button>
+    </div>
+  </form>
+
+</div>
