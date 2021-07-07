@@ -48,7 +48,7 @@ export class SightsService {
     return this.http.put<SightseeingPoint>(`${environment.apiUrl}/sights/${sightID}`, sight);
   }
 
-  // deleteItem(item: Item): Observable<ArrayBuffer> {
-  //   return this.http.delete<ArrayBuffer>(`${environment.serverUrl}/items/${item.id}`);
-  // }
+  deleteItem(sight: SightseeingPoint): Observable<ArrayBuffer> {
+    return this.http.delete<ArrayBuffer>(`${environment.apiUrl}/sights/${sight.id}`);
+  }
 }

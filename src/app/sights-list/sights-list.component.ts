@@ -18,6 +18,10 @@ export class SightsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getSights();
+  }
+
+  getSights(): void {
     this.sightsService.getSights().subscribe(sights => {
       this.sights = sights;
     });
@@ -25,5 +29,15 @@ export class SightsListComponent implements OnInit {
 
   openModal(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(template);
+  }
+
+  deleteItem(sight: SightseeingPoint): void {
+    this.sightsService.deleteItem(sight).subscribe((res: ArrayBuffer) => {
+      if (res) {
+        this.getSights();
+      } else {
+        alert('Something went wrong!');
+      }
+    });
   }
 }

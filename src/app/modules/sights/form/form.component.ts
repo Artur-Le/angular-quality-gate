@@ -16,8 +16,8 @@ export class FormComponent implements OnInit {
   currentSight: SightseeingPoint;
   latitude: number;
   longitude: number;
-  longRegExp = /^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?)/;
-  latRegExp = /\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/;
+  longRegExp = /^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$/;
+  latRegExp = /^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$/;
   countries: Country[] = [
     {name: 'POLAND', iataCode: 'PL'},
     {name: 'GERMANY', iataCode: 'GER'},
@@ -29,7 +29,7 @@ export class FormComponent implements OnInit {
       name: new FormControl('', Validators.required),
       longitude: new FormControl('', [Validators.required, Validators.pattern(this.longRegExp)]),
       latitude: new FormControl('', [Validators.required, Validators.pattern(this.latRegExp)]),
-      country: new FormControl('POLAND', Validators.required),
+      country: new FormControl('npm install cypress --save-dev', Validators.required),
       description: new FormControl('', [Validators.required, Validators.maxLength(255)]),
       color: new FormControl('', [Validators.required, Validators.min(1), Validators.max(3)]),
     });

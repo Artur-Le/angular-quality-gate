@@ -39,7 +39,7 @@
           </span>
 
       <label> Country:
-        <select formControlName="country" class="form-select" aria-label="Default select example">
+        <select formControlName="country" class="form-select" aria-label="Default select example" id="form-country">
           <ng-container *ngFor=" let country of countries">
             <option [value]="country.name">{{country.name}}</option>
           </ng-container>
@@ -60,7 +60,7 @@
             This field is required!
           </span>
       <span
-        *ngIf="showError('description', 'maxLength')"
+        *ngIf="showError('description', 'maxlength')"
         class="error-message error-extra-gap">
             Max length is 255!
           </span>

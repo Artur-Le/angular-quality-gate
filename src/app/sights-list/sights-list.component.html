@@ -7,6 +7,7 @@
     <div class="highlight" [style.background-color]="sight.getColor()"></div>
     <button type="button" class="details btn btn-primary" (click)="openModal(template); currentSight=sight">Details</button>
     <button class="edit btn btn-primary" routerLink="/sight/form/{{sight.id}}">Edit</button>
+    <button class="delete btn btn-danger" (click)="deleteItem(sight)">Delete</button>
   </div>
 </div>
 
