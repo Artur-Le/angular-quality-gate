@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {Country} from '../models/country';
-import {map} from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,16 +17,15 @@ export class SightsService {
   }
 
   getSights(): Observable<SightseeingPoint[]> {
-     return this.http.get<SightseeingPoint[]>(`${environment.apiUrl}/sights`).pipe(
+    return this.http.get<SightseeingPoint[]>(`${environment.apiUrl}/sights`).pipe(
       map(sights => {
+        // TODO add type for sight
         return sights.map(sight => {
-          const country = new Country(sight.country.name, sight.country.iataCode);
-
           return new SightseeingPoint(
             sight.name,
             sight.longitude,
             sight.latitude,
-            country,
+            new Country(sight.country.name, sight.country.iataCode),
             sight.description,
             sight.color,
             sight.id
@@ -49,6 +48,11 @@ export class SightsService {
   }
 
   deleteItem(sight: SightseeingPoint): Observable<ArrayBuffer> {
-    return this.http.delete<ArrayBuffer>(`${environment.apiUrl}/sights/${sight.id}`);
+    return this.http.delete<ArrayBuffer>(`${environment.apiUrl}/sights/${sight.id}`).pipe(
+      catchError(() => {
+        // TODO replace with usage of HTTP interceptor
+        throw new Error('Item still exist!');
+      })
+    );
   }
 }

@@ -23,18 +23,6 @@
       "description": "Dragon of Wawel Hill, is a famous dragon in Polish folklore. His lair was in a cave at the foot of Wawel Hill on the bank of the Vistula River",
       "color": 2,
       "id": 2
-    },
-    {
-      "id": 3,
-      "name": "Krakus Mound",
-      "longitude": 19.957947163916888,
-      "latitude": 50.038264921962835,
-      "country": {
-        "name": "POLAND",
-        "iataCode": "PL"
-      },
-      "description": "This large mound of unknown origin is a popular destination for scenic views of the city.",
-      "color": 1
     }
   ]
 }

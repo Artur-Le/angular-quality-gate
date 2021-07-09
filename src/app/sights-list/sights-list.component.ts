@@ -33,11 +33,7 @@ export class SightsListComponent implements OnInit {
 
   deleteItem(sight: SightseeingPoint): void {
     this.sightsService.deleteItem(sight).subscribe((res: ArrayBuffer) => {
-      if (res) {
-        this.getSights();
-      } else {
-        alert('Something went wrong!');
-      }
+          this.getSights();
     });
   }
 }
